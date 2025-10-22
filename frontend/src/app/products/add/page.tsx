@@ -7,7 +7,7 @@ export default function AddProductPage() {
     const [price, setPrice] = useState("");
     const [description, setDescription] = useState("");
     const [message, setMessage] = useState("");
-    const [stockQuantity, setStockQuantity] = useState<number>(0);
+    const [stockQuantity, setStockQuantity] = useState("");
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -34,7 +34,7 @@ export default function AddProductPage() {
             setName("");
             setPrice("");
             setDescription("");
-            setStockQuantity(0);
+            setStockQuantity("");
 
         } catch (err) {
             setMessage("Ürün eklenirken hata oluştu");
@@ -97,8 +97,9 @@ export default function AddProductPage() {
                         min="0"
                         placeholder="Örn: 10"
                         value={stockQuantity}
-                        onChange={(e) => setStockQuantity(Number(e.target.value))}
+                        onChange={(e) => setStockQuantity(e.target.value)}
                         className="border rounded w-full p-2"
+                        required
                     />
                 </div>
 
